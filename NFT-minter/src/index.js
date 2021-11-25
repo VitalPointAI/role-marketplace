@@ -6,7 +6,7 @@ import { initContract } from './utils'
 window.nearInitPromise = initContract()
   .then(() => {
     ReactDOM.render(
-      <App />,
+      <App style='background-color: #302d2d'/>,
       document.querySelector('#root')
     )
   })
