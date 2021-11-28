@@ -11,10 +11,13 @@ use near_sdk::{ AccountId, BorshStorageKey, PanicOnDefault, Promise, PromiseOrVa
 };
 
 near_sdk::setup_alloc!();
+near_contract_standards::impl_non_fungible_token_core!(Contract, tokens);
+near_contract_standards::impl_non_fungible_token_approval!(Contract, tokens);
+near_contract_standards::impl_non_fungible_token_enumeration!(Contract, tokens); 
 
 //Storage
 #[near_bindgen]
-#[derive(BorshDeserialize, BorshSerialize, PanicOnDefault)]
+#[derive(BorshDeserialize, BorshSerialize, PanicOnDefault)] // Functions to pack, store, unpack data and a panic on default funtion as a saftey net in the event of no data.
 pub struct Contract {
     tokens: NonFungibleToken,
     metadata: LazyOption<NFTContractMetadata>,
@@ -23,6 +26,8 @@ pub struct Contract {
 // Minting funtion 
 #[near_bindgen]
 impl Contract{
+
+    
     #[payable]
      pub fn nft_mint(
      &mut self,
@@ -31,44 +36,6 @@ impl Contract{
      token_metadata: TokenMetadata,
 ) -> Token {
     self.tokens.mint(token_id, receiver_id, Some(token_metadata))
-    }
-}
-
-//Declaring the different subtypes within the StorageKey type.
-#[derive(BorshSerialize, BorshStorageKey)]
-enum StorageKey {
-    Metadata,
-    NonFungibleToken,
-    Enumeration,
-    TokenMetadata,
-    Approval,
-}
-
-// image/icon for default metadata
-const TEST_IMAGE: &str = "https://bafkreic5tytkkxr4zojgakkafn7mdtoptct7yzrkrocnrbgvgmi3z4gdu4.ipfs.dweb.link/";
-
-
-
-
-
-#[near_bindgen]
-impl Contract {
-    /// Initializes the contract owned by `owner_id` with
-    /// default metadata
-    #[init]
-    pub fn new_default_meta(owner_id: ValidAccountId) -> Self {  //declaring new function which intakes an owner id and creates default metadata for the account within the pub struct 'Contract'
-        Self::new(
-            owner_id,
-            NFTContractMetadata {  //specifies what the default metadata is set to.
-                spec: NFT_METADATA_SPEC.to_string(),
-                name: "New NEAR non-fungible token test".to_string(),
-                symbol: "EXAMPLE".to_string(),
-                icon: Some(TEST_IMAGE.to_string()),
-                base_uri: None,
-                reference: None,
-                reference_hash: None,
-            },
-        )
     }
 
     #[init]
@@ -83,17 +50,26 @@ impl Contract {
                 Some(StorageKey::Enumeration),
                 Some(StorageKey::Approval),
             ),
-            metadata: LazyOption::new(StorageKey::Metadata, Some(&metadata)), //LazyOption is a struct from the nearsdk collection, this struct function is to store the value for a given key. In this case it is the NFTs metadata.
-        }
+            metadata: LazyOption::new(StorageKey::Metadata, Some(&metadata)), 
+        } //LazyOption is a struct from the nearsdk collection, this struct function is to store the value for a given key. In this case it is the NFTs metadata.
     }
 }
 
-near_contract_standards::impl_non_fungible_token_core!(Contract, tokens);
-near_contract_standards::impl_non_fungible_token_approval!(Contract, tokens);
-near_contract_standards::impl_non_fungible_token_enumeration!(Contract, tokens);
-#[near_bindgen]  //NFT Metadata provider/reader
+//Declaring the different subtypes within the StorageKey type.
+#[derive(BorshSerialize, BorshStorageKey)]
+enum StorageKey {
+    Metadata,
+    NonFungibleToken,
+    Enumeration,
+    TokenMetadata,
+    Approval,
+}
+
+#[near_bindgen]  
 impl NonFungibleTokenMetadataProvider for Contract {
     fn nft_metadata(&self) -> NFTContractMetadata {
-        self.metadata.get().unwrap()  //Calls for the metadata of the contract and returns their values, will panic if there is not one.
-    }
+        self.metadata.get().unwrap()  
+    }  
 }
+
+//near call $ID nft_mint '{"token_id": "0", "receiver_id": "'$ID'", "token_metadata": { "title": "Some Art", "description": "My NFT media", "media": "https://bafkreiabag3ztnhe5pg7js4bj6sxuvkz3sdf76cjvcuqjoidvnfjz7vwrq.ipfs.dweb.link/", "copies": 1}}' --accountId $ID --deposit 0.1
