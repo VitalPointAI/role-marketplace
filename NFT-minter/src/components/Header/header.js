@@ -5,7 +5,7 @@ import { Grid } from '@mui/material'
 
 function Header(){
     return(
-        <Grid containter spacing={1}>
+        <Grid style={{marginBottom: 5}}containter spacing={1}>
                 <Grid item xs={12}>
                     <Titlecard/>
                 </Grid>

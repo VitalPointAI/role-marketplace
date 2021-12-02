@@ -5,8 +5,7 @@ import { black } from '@mui/material/colors';
 
 function Linkbar(){
 return(
-    <div style={{ backgroundColor: '#22b0ca', position: 'absolute', left: '0px', right: '0px', marginTop: '104px'  }}>
-        <Grid container rowSpacing={6} colomnSpacing={1}>
+        <Grid container style={{ backgroundColor: '#22b0ca'}}  rowSpacing={6} colomnSpacing={1}>
             <Grid item xs={2}>
             <Button  variant='outlined' style={{color:'#302d2d', border: "1px black solid"}} href='/' fullWidth={true}><h3>Main Page</h3></Button>
             </Grid>
@@ -17,7 +16,6 @@ return(
             <Button  variant='outlined' style={{color:'#302d2d', border: "1px black solid"}} href='/contact' fullHeight={true} fullWidth={true}><h3>Contact Page</h3></Button>
             </Grid>
         </Grid>
-    </div>
 )
 }
 

@@ -5,18 +5,16 @@ import Mintingpage from './mintingpage'
 
 function Homepage (){
     return(
-            <Grid container direction='column' alignItems="center" rowSpacing={0}>     
-                <Grid item justifyContent='center' alignItems='center' style={{fontFamily: "Bodoni MT", 
+            <Grid style={{marginTop: 10}} container justifyContent='center' alignItems="center" spacing={10}>     
+                <Grid item style={{fontFamily: "Bodoni MT", 
                     fontSize: '33px',
                     color: 'white', 
                     fontWeight: 400, 
-                    textAlign: 'center',
-                    marginTop: '280px'}}>
+                    textAlign: 'center'}}>
                         Delegate roles to your app's users using customizable NFT badges
-                </Grid> 
-                
-                <Grid item>
-                    <div style={{backgroundColor: '#22b0ca', position:'absolute', left:'20%', right:'20%', top:'57%', bottom:'3%'}}><Mintingpage/></div>
+                 </Grid> 
+                 <Grid container justifyContent='center' style={{maxWidth: '60%', backgroundColor: '#22b0ca'}}>
+                        <Mintingpage/>
                 </Grid>
             </Grid>
     )

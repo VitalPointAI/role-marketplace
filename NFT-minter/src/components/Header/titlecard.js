@@ -9,8 +9,8 @@ import ButtonBase from '@mui/material/ButtonBase';
 function Titlecard (){
     return(
         <>
-        <div style={{backgroundColor:'#22b0ca', position:'absolute', left:'0px', right:'0px', top:'0px', marginBottom:'1px'}}>
         <Grid
+             style={{backgroundColor:'#22b0ca'}}
             container
             direction="row"
             justifyContent="center"
@@ -29,7 +29,7 @@ function Titlecard (){
                 </Grid>
                 
             </Grid>
-        </div>
+      
         
         </>
 
