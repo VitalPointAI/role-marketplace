@@ -11,7 +11,7 @@ const { networkId } = getConfig(process.env.NODE_ENV || 'development')
 
  function App() {
     return (
-    <div style={{ backgroundColor: '#302d2d', position:'absolute', left:'0px', right:'0px', top:'0px', bottom:'0px'}}>
+    <div style={{ backgroundColor: '#302d2d', overflowY: 'scroll', position:'absolute', left:'0px', right:'0px', top:'0px', bottom:'0px'}}>
       <Header/>
       <Router>
         <Routes>

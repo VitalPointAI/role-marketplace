@@ -13,14 +13,14 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
-  
-function Badgezone () {
-  const [selectedValue, setSelectedValue] = React.useState('a');
-  const handleChange = (event) => {
+function Badgezone () { 
+    const [selectedValue, setSelectedValue] = React.useState('a');
+    const handleChange = (event) => {
     setSelectedValue(event.target.value);}
-  return (
-        <Grid container rowSpacing={1} columnSpacing={1}>
 
+    return (
+        <Grid container rowSpacing={1} columnSpacing={1}>
+       
         <Grid item xs={3}>
            <Item>Badge1</Item>
          </Grid>
@@ -83,7 +83,7 @@ function Badgezone () {
          </Grid>
          <Grid item xs={3}>
            <Item>Description zone1</Item>
-</Grid>
+         </Grid>
          <Grid item xs={3}>
            <Item>Description zone2</Item>
          </Grid>
@@ -94,7 +94,10 @@ function Badgezone () {
            <Item>Description zone4</Item>
          </Grid>
        </Grid>
-
+     
    );
  }
-export default Badgezone
+export default Badgezone 
+        
+
+    
