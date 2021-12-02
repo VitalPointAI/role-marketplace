@@ -2,7 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
- function DisplayNames() {
+ function Displayname(props) {
+   const {
+     listOfValues
+   } = props
+  
   return (
     <Box
       sx={{
@@ -15,9 +19,9 @@ import Paper from '@mui/material/Paper';
       }}
     >
       <Paper variant="outlined" />
-      
+      <div style = {{minWidth: '100%'}}> {listOfValues}</div>
     </Box>
   );
-}
+    }
 
-export default function DisplayNames
+export default Displayname
