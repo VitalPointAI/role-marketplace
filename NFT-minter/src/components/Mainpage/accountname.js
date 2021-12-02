@@ -35,14 +35,14 @@ function Encryptionpart() {
         </Grid>
         <Grid item xs={4}>
           <Button onClick={handleClick} variant="outlined">
-            Submit
+            Add
           </Button>
         </Grid>
         <Grid item xs={4}>
           <Displayname  listOfValues={list} />
         </Grid>
         <Grid item xs={2}>
-          <Button>Add</Button>
+          <Button>MINT</Button>
         </Grid>
       </Grid>
       </>
