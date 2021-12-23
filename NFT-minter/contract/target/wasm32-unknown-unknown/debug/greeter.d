@@ -1,0 +1,1 @@
+/home/kyriv/projects/Badger/NFTs-for-roles/NFT-minter/contract/target/wasm32-unknown-unknown/debug/greeter.wasm: /home/kyriv/projects/Badger/NFTs-for-roles/NFT-minter/contract/src/lib.rs
