@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Background from './background.png'
 import About from '../about/about'
 import Contact from '../contact/contact'
-import Minter from '../minter/minter'
+
 
 //material ui imports
 import { Grid } from '@mui/material'
@@ -56,7 +56,7 @@ function Header(){
                                             <Tabs value={value} textColor='white' onChange={handleTabChange} 
                                             TabIndicatorProps={{style: {background:'purple'}}}
                                             >
-                                                <Tab style={{marginTop: 10}} label='Mint' value='1'/>
+                                                <Tab style={{marginTop: 10}} label='Marketplace' value='1'/>
                                                 <Tab style={{marginTop: 10}} label='About' value='2'/>
                                                 <Tab style={{marginTop: 10}} label='Contact' value='3'/>
                                             </Tabs>  
@@ -68,7 +68,7 @@ function Header(){
                     <Grid item xs={12} style={{height: '100%'}}>
                             <TabPanel value='1' >
                                 <Grid item>
-                                <Minter></Minter>
+                                    {/**This is wear marketplace component goes */}
                                 </Grid>
                             </TabPanel>
                             <TabPanel value='2' >
