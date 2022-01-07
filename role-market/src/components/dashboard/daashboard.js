@@ -29,9 +29,33 @@ function Header(){
     }
     return(
         <TabContext value={value}>
+              <Appbar position="sticky" style={{backgroundColor: '#000031'}}>
+                    <Toolbar>
+                        <Grid container justifyContent='center' alignItems='center'>
+                            <Grid item>
+                                 <img src={Logo}/>
+                            </Grid>
+                            <Grid item>
+                            <Typography 
+                                 variant='h4' fontFamily='Arial' >
+                                     Badger
+                            </Typography>
+                         </Grid>
+                         <Grid item>
+                                <Box>
+                                     <Tabs value={value} textColor='white' onChange={handleTabChange} 
+                                    TabIndicatorProps={{style: {background:'purple'}}}
+                                    >
+                                        <Tab style={{marginTop: 10}} label='Marketplace' value='1'/>
+                                        <Tab style={{marginTop: 10}} label='About' value='2'/>
+                                        <Tab style={{marginTop: 10}} label='Contact' value='3'/>
+                                    </Tabs>  
+                                </Box>
+                        </Grid>
+                 </Grid>
+             </Toolbar>
+        </Appbar>
         <Grid container
-         justifyContent='center'
-         alignItems='center' 
          style={{
             backgroundImage: `url(${Background})`, 
             overflowY: 'scroll',
@@ -39,48 +63,19 @@ function Header(){
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat', 
             height: '100%'}}>
-                <Grid item xs={12}>
-                    <Appbar style={{backgroundColor: '#000031'}}>
-                        <Toolbar>
-                                <Grid container justifyContent='center' alignItems='center'>
-                                    <Grid item>
-                                            <img src={Logo}/>
-                                    </Grid>
-                                    <Grid item>
-                                    <Typography 
-                                    variant='h4' fontFamily='Arial' >Badger
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item>
-                                        <Box>
-                                            <Tabs value={value} textColor='white' onChange={handleTabChange} 
-                                            TabIndicatorProps={{style: {background:'purple'}}}
-                                            >
-                                                <Tab style={{marginTop: 10}} label='Marketplace' value='1'/>
-                                                <Tab style={{marginTop: 10}} label='About' value='2'/>
-                                                <Tab style={{marginTop: 10}} label='Contact' value='3'/>
-                                            </Tabs>  
-                                            </Box>
-                                    </Grid>
-                            </Grid>
-                        </Toolbar>
-                    </Appbar>
-                    <Grid item xs={12} style={{height: '100%'}}>
-                            <TabPanel value='1' >
-                                <Grid item>
-                                    {/**This is wear marketplace component goes */}
-                                </Grid>
-                            </TabPanel>
-                            <TabPanel value='2' >
-                                <About></About>
-                            </TabPanel>
-                            <TabPanel value='3' >
+                <Grid item >
+                        <TabPanel value='1' >
+                            Test
+                        </TabPanel>
+                        <TabPanel value='2' >
+                            <About></About>
+                        </TabPanel>
+                        <TabPanel value='3' >
                                 <Contact></Contact>
-                            </TabPanel>
+                        </TabPanel>
                     </Grid>
-                </Grid> 
-        </Grid>
-        </TabContext>
+                </Grid>
+                </TabContext>
     )
 }
 
