@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import Background from './background.png'
 import About from '../about/about'
 import Contact from '../contact/contact'
-
+import MarketPlace from '../marketplace/marketplace'
+import CardTemplate from '../marketplace/cardtemplate'
 
 //material ui imports
 import { Grid } from '@mui/material'
@@ -65,7 +66,9 @@ function Header(){
             height: '100%'}}>
                 <Grid item >
                         <TabPanel value='1' >
-                            Test
+                            <Grid item > 
+                            <MarketPlace></MarketPlace>
+                            </Grid>
                         </TabPanel>
                         <TabPanel value='2' >
                             <About></About>
