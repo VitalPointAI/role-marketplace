@@ -59,12 +59,12 @@ function Header(){
         <Grid container
          style={{
             backgroundImage: `url(${Background})`, 
-            overflowY: 'scroll',
+         
             overflowX: 'hidden', 
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat', 
             height: '100%'}}>
-                <Grid item >
+                <Grid item xs={12}>
                         <TabPanel value='1' >
                             <Grid item > 
                             <MarketPlace></MarketPlace>

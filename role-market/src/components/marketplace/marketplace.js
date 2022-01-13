@@ -8,11 +8,10 @@ import NewCard from '../marketplace/newCard'
 
 function Marketplace(){
     return(
-        <Grid container 
+        <Grid container
             justifyContent="center" 
             alignItems="center"
-            rowSpacing={15}
-            container spacing={2}
+            spacing={2}
             >
             <Grid item xs={12}>
                 <Typography
@@ -24,21 +23,21 @@ function Marketplace(){
                 </Typography>
             </Grid>
             <Grid item
-                xs={3}
+             xs={3}
+            >
+                <CardTemplate></CardTemplate>   
+            </Grid>
+            <Grid item
+              xs={3}
             >
                 <CardTemplate></CardTemplate>
             </Grid>
             <Grid item
-                xs={3}
-            >
+              xs={3}
+            >   
                 <CardTemplate></CardTemplate>
             </Grid>
-            <Grid item
-                xs={3}
-            >
-                <CardTemplate></CardTemplate>
-            </Grid>
-        
+            
         </Grid>
     )
 }
