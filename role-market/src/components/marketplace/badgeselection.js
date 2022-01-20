@@ -8,7 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import { Grid } from '@mui/material'
 //local imports
 import Image from '../marketplace/badgers.png';
-import AppBadges from '../marketplace/appBadges'
+import AppBadges from '../marketplace/appbadges'
 
 
 function BadgeSelection(props) {
