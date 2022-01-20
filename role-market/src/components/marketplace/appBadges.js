@@ -1,6 +1,6 @@
 import React from 'react'
 //@mui imports
-import { Grid } from '@mui/material'
+import { CardActionArea, Grid } from '@mui/material'
 import { Link } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card';
@@ -9,7 +9,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import { WrapperVariantContext } from '@mui/lab/internal/pickers/wrappers/WrapperVariantContext';
 
 //local imports
 import Image from '../marketplace/badgers.png';
@@ -39,23 +38,29 @@ function AppBadges(props){
             height: 250
         }}>
             <CardHeader
-            titleTypographyProps={{variant: 'h6' }}
-            style={{
-                color: "white"}}
-            title = {badgeName}
+                titleTypographyProps={{variant: 'h6' }}
+                style={{
+                    color: "white"
+                }}
+                title = {badgeName}
             ></CardHeader>
-            <CardMedia
-                component = 'img'
-                height= '125'
-                image= {Image}
-            >
-            </CardMedia>
+
+            <CardActionArea>
+                <CardMedia
+                    component = 'img'
+                    height= '125'
+                    image= {Image}
+                    
+                >
+                </CardMedia>
+            </CardActionArea>
+
             <CardContent>
                 <Grid container
                     justifyContent='center'
                 >
                     <Grid item>
-                        <Button variant="contained">Purchase</Button>
+                        <Button variant="contained" color="error" >Purchase</Button>
                     </Grid>
                 </Grid>
             </CardContent>
