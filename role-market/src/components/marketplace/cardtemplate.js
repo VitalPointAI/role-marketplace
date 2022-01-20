@@ -20,7 +20,7 @@ function CardTemplate(){
     const [open, setOpen] = useState(false);
     let headerAvatar = <Avatar 
         src= {Image} //Image used for testing for logos
-        sx={{ width: 75, height: 75 }} 
+        sx={{ width: 100, height: 100 }} 
     />
     let description = "Your Description here Hey gang,  hhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhh in this Material UI tutorial we'll look at the Card component & make our own variant of it to match our design."
     let applicationName = "Application Name"
@@ -46,8 +46,11 @@ function CardTemplate(){
             onClick={()=>{setOpen(true)}}> {/**this is dumb, try and remember it */}
                 
             <CardHeader 
+            titleTypographyProps={{variant:"h4" }}
             avatar={headerAvatar}
-            style={{color: "white"}}
+            style={{
+                color: "white"}}
+            
             title= {applicationName} ></CardHeader>
             <CardContent>
             <Grid container
