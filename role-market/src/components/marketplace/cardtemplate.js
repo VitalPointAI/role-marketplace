@@ -1,4 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react';
+import BadgeSelection from './badgeselection';
+import Image from '../marketplace/badgers.png';
+
+//mui imports
 import { CardActionArea, Grid } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card';
@@ -8,28 +12,49 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import Image from '../marketplace/badgers.png'
-import Link from '@mui/material/Link'
+import Link from '@mui/material/Link';
 
-function CardTemplate(){
+
+function CardTemplate(){ 
+    //variables are declared first then the functions beofre the return statement.
+    const [open, setOpen] = useState(false);
     let headerAvatar = <Avatar 
         src= {Image} //Image used for testing for logos
         sx={{ width: 75, height: 75 }} 
     />
+    let description = "Your Description here Hey gang,  hhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhh in this Material UI tutorial we'll look at the Card component & make our own variant of it to match our design."
+    let applicationName = "Application Name"
+    const handleClose = (value) => {
+        setOpen(false);
+      };
     return(
-        <Card style={{
+        <>
+        <BadgeSelection 
+        open = {open} 
+        handleClose = {handleClose}
+        description = {description}
+        applicationName = {applicationName}
+        >
+
+        </BadgeSelection>
+        <Card 
+            style={{
                  backgroundColor: '#000052',
-             }}>
+        }}>
+            
+            <CardActionArea
+            onClick={()=>{setOpen(true)}}> {/**this is dumb, try and remember it */}
+                
             <CardHeader 
             avatar={headerAvatar}
             style={{color: "white"}}
-            title="Application Name"></CardHeader>
+            title= {applicationName} ></CardHeader>
             <CardContent>
             <Grid container
                 justifyContent="center"
                 alignItems='center'
                 direction="column">
-                <Grid 
+                <Grid container
                     xs={10} 
                     style={{color: "white", overflow: "hidden", textOverflow: 'ellipsis'}}>
                     <Typography 
@@ -39,12 +64,14 @@ function CardTemplate(){
                             fontColor: 'white',
                             color: 'white',
                         }}> 
-                            Your Description here Hey gang,  hhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhh in this Material UI tutorial we'll look at the Card component & make our own variant of it to match our design.
+                            {description}
                         </Typography> 
                 </Grid>
             </Grid>
             </CardContent>
+            </CardActionArea>
         </Card>
+        </>
     )
 }
 export default CardTemplate

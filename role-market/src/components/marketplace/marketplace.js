@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 import { Link } from '@mui/material'
 import Typography from '@mui/material/Typography'
 import CardTemplate from '../marketplace/cardtemplate'
-import NewCard from '../marketplace/newCard'
+
 
 
 function Marketplace(){
